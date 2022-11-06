@@ -6,6 +6,33 @@
         <title>Travel App</title>
     </head>
     <body>
-        <h1>Travel App</h1>
+        <header>
+            <img src="https://via.placeholder.com/75" alt="Site Logo" />
+        </header>
+        <div id="app">
+            <form action="">
+                <div class="formGroup">
+                    <label for="travelLocation">Where are you going?</label>
+                    <input
+                        type="text"
+                        name="travelLocation"
+                        id="travelLocation"
+                    />
+                </div>
+                <div class="formGroup">
+                    <label for="travelDeparture">When are you leaving?</label>
+                    <input
+                        type="date"
+                        name="travelDeparture"
+                        id="travelDeparture"
+                    />
+                </div>
+                <div class="formGroup">
+                    <label for="travelReturn">When are you returning?</label>
+                    <input type="date" name="travelReturn" id="travelReturn" />
+                </div>
+                <button type="submit">Save Trip</button>
+            </form>
+        </div>
     </body>
 </html>

@@ -1,0 +1,45 @@
+body {
+    height: 100vh;
+    position: relative;
+    font-family: sans-serif;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: max-content;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & img {
+        padding: 1rem 0;
+        border-radius: 100%;
+    }
+}
+
+#app {
+    height: 100%;
+    display: grid;
+    place-content: center;
+
+    & form {
+        display: grid;
+        place-content: center;
+        gap: 1rem;
+    }
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+
+    & label {
+        text-align: center;
+        padding-bottom: 0.2rem;
+    }
+}
