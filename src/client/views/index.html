@@ -10,13 +10,18 @@
             <img src="https://via.placeholder.com/75" alt="Site Logo" />
         </header>
         <div id="app">
-            <form action="">
+            <nav>
+                <a href="#addATrip">New Trip</a>
+                <a href="#savedTrips">Saved Trips</a>
+            </nav>
+            <form id="tripForm">
                 <div class="formGroup">
                     <label for="travelLocation">Where are you going?</label>
                     <input
                         type="text"
                         name="travelLocation"
                         id="travelLocation"
+                        placeholder="Enter a location"
                     />
                 </div>
                 <div class="formGroup">
