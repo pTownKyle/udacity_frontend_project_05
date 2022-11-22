@@ -1,19 +1,37 @@
-const tripForm = document.getElementById('tripForm');
+// Primary Object with placeholder values
+let tripData = {
+    destination: '',
+    departDate: '',
+    returnDate: '',
+    weatherData: [],
+    destinationImage: '',
+};
 
-tripForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+// test function
+function getTripInfo(tripDestination) {
+    // Send Data to Server
+    return (
+        fetch('/trip', {
+            method: 'POST',
+            redirect: 'follow',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                tripDestination,
+            }),
+        })
+            // Get Response from Server
+            .then((res) => res.json())
+            .then((data) => data)
+            .catch((err) => {
+                console.log(err);
+            })
+    );
+}
 
-    // Get Location Element
-    const travelLocationElement = document.getElementById('travelLocation');
-    const travelLocation = travelLocationElement.value;
-    fetch('/trip', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ travelLocation }),
-    }).then((res) => {
-        let data = res.json();
-        console.log(data);
-    });
-});
+// Update UI with Trip Data
+function updateUI(tripData) {}
+
+// Export Function
+export { getTripInfo, tripData };

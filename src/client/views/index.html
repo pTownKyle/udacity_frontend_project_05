@@ -9,35 +9,54 @@
         <header>
             <img src="https://via.placeholder.com/75" alt="Site Logo" />
         </header>
+
         <div id="app">
-            <nav>
-                <a href="#addATrip">New Trip</a>
-                <a href="#savedTrips">Saved Trips</a>
-            </nav>
-            <form id="tripForm">
+            <form id="tripForm" data-show="true">
                 <div class="formGroup">
-                    <label for="travelLocation">Where are you going?</label>
+                    <label for="tripDestination">Where are you going?</label>
                     <input
                         type="text"
-                        name="travelLocation"
-                        id="travelLocation"
-                        placeholder="Enter a location"
+                        name="tripDestination"
+                        id="tripDestination"
+                        placeholder="Enter a destination"
                     />
                 </div>
                 <div class="formGroup">
-                    <label for="travelDeparture">When are you leaving?</label>
+                    <label for="tripDepartDate">When are you leaving?</label>
                     <input
                         type="date"
-                        name="travelDeparture"
-                        id="travelDeparture"
+                        name="tripDepartDate"
+                        id="tripDepartDate"
                     />
                 </div>
                 <div class="formGroup">
-                    <label for="travelReturn">When are you returning?</label>
-                    <input type="date" name="travelReturn" id="travelReturn" />
+                    <label for="tripReturnDate">When are you returning?</label>
+                    <input
+                        type="date"
+                        name="tripReturnDate"
+                        id="tripReturnDate"
+                    />
                 </div>
                 <button type="submit">Save Trip</button>
             </form>
+
+            <div id="results" data-show="false">
+                <div id="tripInfo">
+                    <h2 id="tripDestination"></h2>
+                    <p id="tripDepartDate"></p>
+                    <p id="tripReturnDate"></p>
+                    <p id="tripDuration"></p>
+                </div>
+                <div id="weatherInfo">
+                    <h3>Weather</h3>
+                    <p id="weatherSummary"></p>
+                    <p id="weatherTemp"></p>
+                </div>
+                <div id="imageInfo">
+                    <h3>Image</h3>
+                    <img src="" alt="" />
+                </div>
+            </div>
         </div>
     </body>
 </html>

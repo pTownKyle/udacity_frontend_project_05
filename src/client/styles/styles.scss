@@ -26,16 +26,6 @@ header {
     display: grid;
     place-content: center;
 
-    & nav {
-        margin-bottom: 1.5rem;
-        display: flex;
-        justify-content: space-evenly;
-
-        & a {
-            text-decoration: none;
-        }
-    }
-
     & form {
         display: grid;
         place-content: center;
@@ -54,4 +44,13 @@ header {
         text-align: center;
         padding-bottom: 0.2rem;
     }
+}
+
+[data-show='false'] {
+    display: none;
+    visibility: hidden;
+}
+
+[data-show='true'] {
+    visibility: visible;
 }
