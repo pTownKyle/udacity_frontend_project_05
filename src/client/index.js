@@ -5,6 +5,9 @@ import './styles/styles.scss';
 // Import function from app.js
 import { getTripInfo, tripData } from './js/app';
 
+// Import Date Input Polyfill
+import 'date-input-polyfill';
+
 // Import luxon for date manipulation
 import { DateTime as dt } from 'luxon';
 
@@ -14,11 +17,13 @@ const tripReturnDateElement = document.getElementById('tripReturnDate');
 document.addEventListener('DOMContentLoaded', () => {
     // Set the minimum date for tripDepartDateElement
     tripDepartDateElement.setAttribute('min', dt.now().toFormat('yyyy-MM-dd'));
+});
 
-    // Set the minimum date +1 for tripReturnDateElement
+tripDepartDateElement.addEventListener('change', (e) => {
+    // Set the minimum date for tripReturnDateElement plus one day of the tripDepartDateElement
     tripReturnDateElement.setAttribute(
         'min',
-        dt.now().plus({ days: 1 }).toFormat('yyyy-MM-dd')
+        dt.fromISO(e.target.value).plus({ days: 1 }).toFormat('yyyy-MM-dd')
     );
 });
 
@@ -73,6 +78,12 @@ function showResults(tripData) {
     const resultsDestination = document.querySelector('.resultsDestination h2');
     resultsDestination.innerHTML = tripData.destination;
 
+    // If no results, show Destination Not Found & hide travel details
+    if (tripData.weatherData.length === 0) {
+        resultsDestination.innerHTML = 'Destination Not Found';
+        document.querySelector('.travelDetails').dataset.show = 'false';
+    }
+
     // Display Trip Date Info
     const resultsDepartDate = document.querySelector(
         '#results .resultsDepartDate'
@@ -115,6 +126,12 @@ function showResults(tripData) {
     ) {
         forecastHeading = `Predicted Forecast`;
     } else {
+        forecastHeading = 'Weather is Unavailable';
+        weatherDetailsUl.dataset.show = 'false';
+    }
+
+    // If weatherData is empty, hide weatherDetailsUl
+    if (tripData.weatherData.length === 0) {
         forecastHeading = 'Weather is Unavailable';
         weatherDetailsUl.dataset.show = 'false';
     }

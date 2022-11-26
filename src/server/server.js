@@ -70,6 +70,11 @@ function getGeoCodeInfo(location) {
         .then((res) => res.json())
         .then((data) => data.geonames[0])
         .then((geoCodeInfo) => {
+            // If no results, return error
+            if (geoCodeInfo === undefined) {
+                return { error: 'No results found' };
+            }
+
             const latitude = geoCodeInfo.lat;
             const longitude = geoCodeInfo.lng;
             return { latitude, longitude };
@@ -87,7 +92,14 @@ function getWeatherInfo(latitude, longitude) {
     const weatherBitURL = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&key=${weatherBitApiKey}`;
     return fetch(weatherBitURL)
         .then((res) => res.json())
-        .then((data) => data.data)
+        .then((data) => {
+            // If no results, set Weather Data to empty array
+            if (data.data === undefined) {
+                return [];
+            }
+
+            return data.data;
+        })
         .catch((err) => console.log(err));
 }
 

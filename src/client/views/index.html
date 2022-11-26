@@ -3,11 +3,11 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Travel App</title>
+        <title>Travel Planner</title>
     </head>
     <body>
         <header>
-            <img src="https://via.placeholder.com/75" alt="Site Logo" />
+            <span class="siteLogo"> Travel Planner </span>
         </header>
 
         <div id="app">
@@ -28,7 +28,7 @@
                         type="date"
                         name="tripDepartDate"
                         id="tripDepartDate"
-                        min=""
+                        min="2022-01-01"
                         required
                     />
                 </div>
@@ -38,7 +38,7 @@
                         type="date"
                         name="tripReturnDate"
                         id="tripReturnDate"
-                        min=""
+                        min="2022-01-02"
                         required
                     />
                 </div>
@@ -46,28 +46,37 @@
             </form>
 
             <div id="results" data-show="false">
-                <img class="resultsImg" src="" alt="Trip Destination Image">
+                <img class="resultsImg" src="#" alt="Trip Destination Image" />
                 <div class="resultsDestination">
-                    <h2></h2>
+                    <h2>Destination</h2>
                 </div>
 
-                <div class="travelDetails">
+                <div class="travelDetails" data-show="true">
                     <h3>Travel Details</h3>
                     <ul>
-                        <li>Leaving: <span class="resultsDepartDate"></span></li>
-                        <li>Returning: <span class="resultsReturnDate"></span></li>
+                        <li>
+                            Leaving: <span class="resultsDepartDate"></span>
+                        </li>
+                        <li>
+                            Returning: <span class="resultsReturnDate"></span>
+                        </li>
                         <li>Duration: <span class="resultsDuration"></span></li>
                     </ul>
                 </div>
                 <div class="weatherDetails">
-                    <h3></h3>
+                    <h3>Weather Details</h3>
                     <p></p>
                     <ul data-show="true">
                         <li>High: <span class="resultsHi"></span></li>
                         <li>Low: <span class="resultsLo"></span></li>
-                        <li>Rain Chance: <span class="resultsRainChance"></span></li>
-                        <li>Conditions: <span class="resultsConditions"></span></li>
-                    </ulf>
+                        <li>
+                            Rain Chance: <span class="resultsRainChance"></span>
+                        </li>
+                        <li>
+                            Conditions: <span class="resultsConditions"></span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </body>

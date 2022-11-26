@@ -1,10 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Rufina:regular,700);
 @import url(https://fonts.googleapis.com/css?family=Oxygen:300,regular,700);
 
+// Color Variables
+$color-background: #fef5ec;
+$color-text: hsl(0, 0%, 30%);
+
 body {
     height: 100vh;
     position: relative;
     font-family: 'Oxygen', sans-serif;
+    background-color: $color-background;
+    color: $color-text;
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 1rem;
 }
 
 h1,
@@ -16,14 +25,15 @@ h3 {
 header {
     width: 100%;
     height: max-content;
-    background-color: #333;
-    color: #fff;
     display: grid;
     place-content: center;
+    border-bottom: darken($color-background, 21%) 1px solid;
 
-    & img {
-        padding: 1rem 0;
-        border-radius: 100%;
+    & .siteLogo {
+        padding: 1rem;
+        font-size: 2rem;
+        font-family: 'Rufina', serif;
+        text-transform: uppercase;
     }
 }
 
@@ -37,8 +47,12 @@ header {
         place-content: center;
         gap: 1.5rem;
         padding: 2rem;
-        border: 0.3rem solid #333;
-        border-radius: 1rem;
+        box-shadow: 10px 15px 26px 15px rgba(76, 76, 76, 0.32);
+        border-radius: 0.5rem;
+        border: 1px solid #e6e6e6;
+        box-shadow: inset 5px 4px 12px 3px rgba(76, 76, 76, 0.21),
+            inset -5px -4px 12px 3px rgba(76, 76, 76, 0.11);
+        background-color: darken($color-background, 5%);
 
         &[data-show='false'] {
             display: none;
@@ -56,18 +70,27 @@ header {
     flex-direction: column;
 
     & label {
+        font-size: 1.2rem;
         text-align: center;
         padding-bottom: 0.2rem;
     }
 }
 
+input,
 input[type='text'],
 input[type='date'] {
-    /* Styles Go Here */
+    text-align: center;
+    padding: 0.3rem;
 }
 
 button[type='submit'] {
-    background-color: hsl(0, 0%, 20%);
+    background-color: hsl(196deg, 31%, 56%);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Rufina', serif;
 
     &:hover {
         background-color: hsl(0, 0%, 30%);
@@ -100,8 +123,13 @@ button[type='submit'] {
         visibility: visible;
     }
 
+    h2 {
+        font-size: clamp(1.5rem, 2vw, 2rem);
+    }
+
     & h3 {
         text-align: center;
+        font-size: clamp(1rem, 2vw, 1.5rem);
     }
 
     & ul {
@@ -111,6 +139,12 @@ button[type='submit'] {
         & li {
             display: flex;
             justify-content: space-between;
+            font-size: clamp(1rem, 1.2rem, 1.5rem);
+            padding: 0.5rem 1rem;
+        }
+
+        & li:nth-child(odd) {
+            background-color: hsl(0, 0%, 90%);
         }
     }
 
@@ -121,8 +155,7 @@ button[type='submit'] {
 }
 
 .resultsImg {
-    width: 50%;
-    height: 50%;
+    width: clamp(200px, 50vw, 400px);
     object-fit: cover;
 }
 
