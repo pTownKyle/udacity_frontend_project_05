@@ -18,7 +18,8 @@
                         type="text"
                         name="tripDestination"
                         id="tripDestination"
-                        placeholder="Enter a destination"
+                        placeholder="City, State"
+                        required
                     />
                 </div>
                 <div class="formGroup">
@@ -27,6 +28,8 @@
                         type="date"
                         name="tripDepartDate"
                         id="tripDepartDate"
+                        min=""
+                        required
                     />
                 </div>
                 <div class="formGroup">
@@ -35,27 +38,36 @@
                         type="date"
                         name="tripReturnDate"
                         id="tripReturnDate"
+                        min=""
+                        required
                     />
                 </div>
                 <button type="submit">Save Trip</button>
             </form>
 
             <div id="results" data-show="false">
-                <div id="tripInfo">
-                    <h2 id="tripDestination"></h2>
-                    <p id="tripDepartDate"></p>
-                    <p id="tripReturnDate"></p>
-                    <p id="tripDuration"></p>
+                <img class="resultsImg" src="" alt="Trip Destination Image">
+                <div class="resultsDestination">
+                    <h2></h2>
                 </div>
-                <div id="weatherInfo">
-                    <h3>Weather</h3>
-                    <p id="weatherSummary"></p>
-                    <p id="weatherTemp"></p>
+
+                <div class="travelDetails">
+                    <h3>Travel Details</h3>
+                    <ul>
+                        <li>Leaving: <span class="resultsDepartDate"></span></li>
+                        <li>Returning: <span class="resultsReturnDate"></span></li>
+                        <li>Duration: <span class="resultsDuration"></span></li>
+                    </ul>
                 </div>
-                <div id="imageInfo">
-                    <h3>Image</h3>
-                    <img src="" alt="" />
-                </div>
+                <div class="weatherDetails">
+                    <h3></h3>
+                    <p></p>
+                    <ul data-show="true">
+                        <li>High: <span class="resultsHi"></span></li>
+                        <li>Low: <span class="resultsLo"></span></li>
+                        <li>Rain Chance: <span class="resultsRainChance"></span></li>
+                        <li>Conditions: <span class="resultsConditions"></span></li>
+                    </ulf>
             </div>
         </div>
     </body>

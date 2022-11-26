@@ -3,8 +3,6 @@ const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const fetch = require('node-fetch');
-const { resolve } = require('path');
-const { url } = require('inspector');
 require('dotenv').config();
 
 // Initialize & configure express
@@ -13,10 +11,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('dist'));
-
-// Set Views Directory & Engine
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
 
 // Get API Credentials from .env file
 const geoCodeUsername = process.env.GEOCODE_USERNAME;
@@ -47,7 +41,7 @@ app.post('/trip', async (req, res) => {
             if (data.totalHits > 0) {
                 return data.hits[0].webformatURL;
             } else {
-                return 'https://cdn.pixabay.com/photo/2016/02/19/11/19/question-mark-1209646_960_720.png';
+                return '';
             }
         })
         .catch((err) => console.log(err));
@@ -108,3 +102,10 @@ function getImage(tripDestination) {
         .then((data) => data)
         .catch((err) => console.log(err));
 }
+
+// Export Functions for Testing
+module.exports = {
+    getGeoCodeInfo,
+    getWeatherInfo,
+    getImage,
+};

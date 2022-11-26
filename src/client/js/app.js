@@ -30,8 +30,5 @@ function getTripInfo(tripDestination) {
     );
 }
 
-// Update UI with Trip Data
-function updateUI(tripData) {}
-
 // Export Function
-export { getTripInfo, tripData };
+module.exports = { getTripInfo, tripData };

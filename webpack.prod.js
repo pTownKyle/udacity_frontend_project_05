@@ -1,8 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// const WorkboxPlugin = require('workbox-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
     mode: 'production',
@@ -32,6 +33,9 @@ module.exports = {
             template: './src/client/views/index.html',
             filename: './index.html',
         }),
+        new CopyPlugin({
+            patterns: [{ from: './src/client/img', to: './img' }],
+        }),
         new CleanWebpackPlugin({
             dry: true,
             verbose: true,
@@ -39,6 +43,6 @@ module.exports = {
             protectWebpackAssets: false,
             cleanOnceBeforeBuildPatterns: [path.join(__dirname, 'dist/**/*')],
         }),
-        // new WorkboxPlugin.GenerateSW(),
+        new WorkboxPlugin.GenerateSW(),
     ],
 };
