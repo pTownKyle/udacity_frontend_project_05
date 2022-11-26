@@ -93,7 +93,7 @@ button[type='submit'] {
     font-family: 'Rufina', serif;
 
     &:hover {
-        background-color: hsl(0, 0%, 30%);
+        background-color: darken(hsl(196deg, 31%, 56%), 10%);
     }
 }
 
@@ -167,5 +167,20 @@ button[type='submit'] {
     & p {
         margin-top: 0;
         text-align: center;
+    }
+}
+
+.returnButton {
+    background-color: hsl(196deg, 31%, 56%);
+    padding: 0.5rem 1rem;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Rufina', serif;
+    border: none;
+    border-radius: 0.5rem;
+    text-decoration: none;
+
+    &:hover {
+        background-color: darken(hsl(196deg, 31%, 56%), 10%);
     }
 }
