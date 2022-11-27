@@ -52,6 +52,9 @@ tripForm.addEventListener('submit', async (e) => {
     tripData.destinationImage = tripWeatherImage.image.replace('_640', '_340');
 
     showResults(tripData);
+
+    // Clear Form Fields
+    tripForm.reset();
 });
 
 // Show Results
@@ -164,11 +167,6 @@ function showResults(tripData) {
             weatherRainChance.innerHTML = `${dayWeather.rainChance}%`;
             weatherConditions.innerHTML = dayWeather.conditions;
         }
-
-        // Clear Form Fields
-        tripDestinationElement.value = '';
-        tripDepartDateElement.value = '';
-        tripReturnDateElement.value = '';
     });
 }
 
