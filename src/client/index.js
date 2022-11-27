@@ -49,7 +49,7 @@ tripForm.addEventListener('submit', async (e) => {
     tripData.departDate = tripDepartDate;
     tripData.returnDate = tripReturnDate;
     tripData.weatherData = tripWeatherImage.weatherData;
-    tripData.destinationImage = tripWeatherImage.image;
+    tripData.destinationImage = tripWeatherImage.image.replace('_640', '_340');
 
     showResults(tripData);
 });

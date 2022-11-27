@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const fetch = require('node-fetch');
-require('dotenv').config();
+// require('dotenv').config();
 
 // Initialize & configure express
 const app = express();
@@ -12,10 +12,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('dist'));
 
-// Get API Credentials from .env file
-const geoCodeUsername = process.env.GEOCODE_USERNAME;
-const weatherBitApiKey = process.env.WEATHERBIT_API_KEY;
-const pixaBayApiKey = process.env.PIXABAY_API_KEY;
+// Get API Credentials from .env file (Hardcoded for Udacity Review)
+const geoCodeUsername = 'ptownkyle'; // process.env.GEOCODE_USERNAME;
+const weatherBitApiKey = '693ffa416f3b4da499a1a675e41fa2e7'; // process.env.WEATHERBIT_API_KEY;
+const pixaBayApiKey = '31189913-eb5be724919e11cf0ca38e17e'; // process.env.PIXABAY_API_KEY;
 
 // Get Weather Info
 app.post('/trip', async (req, res) => {
