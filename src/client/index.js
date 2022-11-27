@@ -164,6 +164,11 @@ function showResults(tripData) {
             weatherRainChance.innerHTML = `${dayWeather.rainChance}%`;
             weatherConditions.innerHTML = dayWeather.conditions;
         }
+
+        // Clear Form Fields
+        tripDestinationElement.value = '';
+        tripDepartDateElement.value = '';
+        tripReturnDateElement.value = '';
     });
 }
 
